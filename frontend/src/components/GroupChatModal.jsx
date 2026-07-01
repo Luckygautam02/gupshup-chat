@@ -27,7 +27,7 @@ const GroupChatModal = ({ isOpen, onClose }) => {
         headers: { Authorization: `Bearer ${user.token}` },
       };
       const { data } = await axios.get(
-        `http://localhost:5000/api/user?search=${query}`,
+        `https://gupshup-chat-jpxe.onrender.com/api/user?search=${query}`,
         config,
       );
       setLoading(false);
@@ -64,7 +64,7 @@ const GroupChatModal = ({ isOpen, onClose }) => {
         headers: { Authorization: `Bearer ${user.token}` },
       };
       const { data } = await axios.post(
-        "http://localhost:5000/api/chat/group",
+        "https://gupshup-chat-jpxe.onrender.com/api/chat/group",
         {
           name: groupChatName,
           users: JSON.stringify(selectedUsers.map((u) => u._id)),

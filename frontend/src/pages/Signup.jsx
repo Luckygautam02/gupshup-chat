@@ -33,7 +33,7 @@ const Signup = () => {
 
       // Make API Call to Backend
       const { data } = await axios.post(
-        "http://localhost:5000/api/auth/register",
+        "https://gupshup-chat-jpxe.onrender.com/api/auth/register",
         { name, email, password },
         config,
       );

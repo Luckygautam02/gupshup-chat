@@ -14,7 +14,7 @@ const GroupInfoModal = ({ isOpen, onClose }) => {
     try {
       const config = { headers: { Authorization: `Bearer ${user.token}` } };
       await axios.put(
-        "http://localhost:5000/api/chat/groupremove",
+        "https://gupshup-chat-jpxe.onrender.com/api/chat/groupremove",
         {
           chatId: selectedChat._id,
           userId: user._id,
@@ -37,7 +37,7 @@ const GroupInfoModal = ({ isOpen, onClose }) => {
     try {
       const config = { headers: { Authorization: `Bearer ${user.token}` } };
       await axios.delete(
-        `http://localhost:5000/api/chat/${selectedChat._id}`,
+        `https://gupshup-chat-jpxe.onrender.com/api/chat/${selectedChat._id}`,
         config,
       );
 

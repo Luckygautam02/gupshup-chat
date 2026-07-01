@@ -23,7 +23,7 @@ const SideDrawer = () => {
     try {
       const config = { headers: { Authorization: `Bearer ${user.token}` } };
       const { data } = await axios.get(
-        "http://localhost:5000/api/user/requests",
+        "https://gupshup-chat-jpxe.onrender.com/api/user/requests",
         config,
       );
       setPendingRequests(data);
@@ -37,7 +37,7 @@ const SideDrawer = () => {
     try {
       const config = { headers: { Authorization: `Bearer ${user.token}` } };
       const { data } = await axios.get(
-        "http://localhost:5000/api/user/friends",
+        "https://gupshup-chat-jpxe.onrender.com/api/user/friends",
         config,
       );
       setMyFriends(data); // Stores array of friend IDs
@@ -65,7 +65,7 @@ const SideDrawer = () => {
       setLoading(true);
       const config = { headers: { Authorization: `Bearer ${user.token}` } };
       const { data } = await axios.get(
-        `http://localhost:5000/api/user?search=${search}`,
+        `https://gupshup-chat-jpxe.onrender.com/api/user?search=${search}`,
         config,
       );
       setLoading(false);
@@ -81,7 +81,7 @@ const SideDrawer = () => {
     try {
       const config = { headers: { Authorization: `Bearer ${user.token}` } };
       await axios.post(
-        "http://localhost:5000/api/user/send-request",
+        "https://gupshup-chat-jpxe.onrender.com/api/user/send-request",
         { targetUserId },
         config,
       );
@@ -96,7 +96,7 @@ const SideDrawer = () => {
     try {
       const config = { headers: { Authorization: `Bearer ${user.token}` } };
       await axios.post(
-        "http://localhost:5000/api/user/accept-request",
+        "https://gupshup-chat-jpxe.onrender.com/api/user/accept-request",
         { senderId },
         config,
       );
@@ -122,7 +122,7 @@ const SideDrawer = () => {
         },
       };
       const { data } = await axios.post(
-        `http://localhost:5000/api/chat`,
+        `https://gupshup-chat-jpxe.onrender.com/api/chat`,
         { userId },
         config,
       );

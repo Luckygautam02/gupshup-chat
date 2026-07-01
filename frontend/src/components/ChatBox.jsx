@@ -5,7 +5,7 @@ import io from "socket.io-client";
 import GroupInfoModal from "./GroupInfoModal"; // Import the modal
 
 // Backend URL where Socket.io is running
-const ENDPOINT = "http://localhost:5000";
+const ENDPOINT = "https://gupshup-chat-jpxe.onrender.com";
 let socket;
 
 const ChatBox = () => {
@@ -43,7 +43,7 @@ const ChatBox = () => {
       const config = { headers: { Authorization: `Bearer ${user.token}` } };
       setLoading(true);
       const { data } = await axios.get(
-        `http://localhost:5000/api/message/${selectedChat._id}`,
+        `https://gupshup-chat-jpxe.onrender.com/api/message/${selectedChat._id}`,
         config,
       );
       setMessages(data);
@@ -95,7 +95,7 @@ const ChatBox = () => {
         setNewMessage("");
 
         const { data } = await axios.post(
-          "http://localhost:5000/api/message",
+          "https://gupshup-chat-jpxe.onrender.com/api/message",
           { content: messageContent, chatId: selectedChat._id },
           config,
         );
@@ -111,9 +111,12 @@ const ChatBox = () => {
   // Function to handle message deletion
   const deleteMessageApi = async (messageId) => {
     try {
-      await axios.delete(`http://localhost:5000/api/message/${messageId}`, {
-        headers: { Authorization: `Bearer ${user.token}` },
-      });
+      await axios.delete(
+        `https://gupshup-chat-jpxe.onrender.com/api/message/${messageId}`,
+        {
+          headers: { Authorization: `Bearer ${user.token}` },
+        },
+      );
       // Update the state to instantly remove the deleted message from screen
       setMessages(messages.filter((m) => m._id !== messageId));
     } catch (error) {
