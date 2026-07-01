@@ -5,10 +5,10 @@ const http = require("http");
 const { Server } = require("socket.io");
 require("dotenv").config();
 
-const authRoutes = require("./routes/authRoutes");
-const chatRoutes = require("./routes/chatRoutes");
-const messageRoutes = require("./routes/messageRoutes");
-const userRoutes = require("./routes/userRoutes");
+const authRoutes = require("./Routes/authRoutes");
+const chatRoutes = require("./Routes/chatRoutes");
+const messageRoutes = require("./Routes/messageRoutes");
+const userRoutes = require("./Routes/userRoutes");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
