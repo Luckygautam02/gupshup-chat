@@ -138,6 +138,15 @@ const SideDrawer = () => {
     }
   };
 
+  // Logout handler function to clear session and redirect
+  const logoutHandler = () => {
+    // Remove user data from LocalStorage
+    localStorage.removeItem("userInfo");
+
+    // Redirect user to the login page
+    window.location.href = "/login";
+  };
+
   return (
     <>
       {/* 1. TOP NAVBAR */}
@@ -210,6 +219,13 @@ const SideDrawer = () => {
             {user?.name?.charAt(0).toUpperCase()}
           </div>
         </div>
+        {/* Logout button */}
+        <button
+          onClick={logoutHandler}
+          className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition ml-2 text-sm"
+        >
+          Logout
+        </button>
       </div>
 
       {/* 2. SIDE DRAWER */}
