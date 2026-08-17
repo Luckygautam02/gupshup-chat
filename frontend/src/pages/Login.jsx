@@ -1,15 +1,11 @@
-import { useState, useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
-import { AuthContext } from "../context/AuthContext";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-
-  const navigate = useNavigate();
-  const { setUser } = useContext(AuthContext);
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -35,13 +31,7 @@ const Login = () => {
       // Save user data and token to LocalStorage
       localStorage.setItem("userInfo", JSON.stringify(data));
 
-      // Update global context state
-      setUser(data);
-
-      setLoading(false);
-
-      // Redirect to Chat Page
-      navigate("/chats");
+      window.location.href = "/chats";
     } catch (error) {
       alert(error.response?.data?.message || "Invalid Email or Password!");
       setLoading(false);

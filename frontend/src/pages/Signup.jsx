@@ -1,7 +1,6 @@
-import { useState, useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
-import { AuthContext } from "../context/AuthContext";
 
 const Signup = () => {
   const [name, setName] = useState("");
@@ -9,9 +8,6 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [loading, setLoading] = useState(false); // To show loading state
-
-  const navigate = useNavigate();
-  const { setUser } = useContext(AuthContext); // Context API for global state
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -44,13 +40,7 @@ const Signup = () => {
       // Save user data (including JWT token) to LocalStorage
       localStorage.setItem("userInfo", JSON.stringify(data));
 
-      // Update global context state
-      setUser(data);
-
-      setLoading(false);
-
-      // Redirect user to Chat Page
-      navigate("/chats");
+      window.location.href = "/chats";
     } catch (error) {
       // Show error if user already exists or any other issue
       alert(error.response?.data?.message || "Something went wrong!");
