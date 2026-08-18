@@ -46,11 +46,12 @@ To run this project locally on your machine, follow these steps:
 
 2. Setup Backend:
 
-````bash
+```bash
   cd backend
   npm install
   # Create a .env file and add your MONGO_URI, JWT_SECRET, etc.
   node server.js
+```
 
 3. Setup Frontend
 ```bash
