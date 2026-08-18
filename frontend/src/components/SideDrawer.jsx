@@ -240,13 +240,6 @@ const SideDrawer = () => {
             )}
           </div>
         </div>
-        {/* Logout button */}
-        <button
-          onClick={logoutHandler}
-          className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition ml-2 text-sm"
-        >
-          Logout
-        </button>
       </div>
 
       {/* 2. SIDE DRAWER */}
