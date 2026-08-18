@@ -15,6 +15,9 @@ const SideDrawer = () => {
   const [pendingRequests, setPendingRequests] = useState([]);
   const [showNotifications, setShowNotifications] = useState(false);
 
+  // State to handle profile dropdown visibility
+  const [showProfileMenu, setShowProfileMenu] = useState(false);
+
   // NEW STATE: To store the current user's friends list
   const [myFriends, setMyFriends] = useState([]);
 
@@ -214,9 +217,27 @@ const SideDrawer = () => {
               </div>
             )}
           </div>
+          {/* Profile Avatar & Dropdown Container */}
+          <div className="relative">
+            {/* The circular Avatar (Clickable) */}
+            <div
+              onClick={() => setShowProfileMenu(!showProfileMenu)}
+              className="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-lg cursor-pointer hover:opacity-90 transition"
+            >
+              {user?.name?.charAt(0).toUpperCase()}
+            </div>
 
-          <div className="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-lg shadow-md">
-            {user?.name?.charAt(0).toUpperCase()}
+            {/* The Dropdown Menu (Visible only when avatar is clicked) */}
+            {showProfileMenu && (
+              <div className="absolute right-0 mt-2 w-32 bg-white border border-gray-200 rounded-md shadow-lg z-50 overflow-hidden">
+                <button
+                  onClick={logoutHandler}
+                  className="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-gray-100 transition font-medium"
+                >
+                  Logout
+                </button>
+              </div>
+            )}
           </div>
         </div>
         {/* Logout button */}
